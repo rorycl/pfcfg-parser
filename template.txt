@@ -1,0 +1,31 @@
+HAProxy Configuration Report
+
+Report generated at {{ .T.Format "2006-01-02 15:04" }}
+System      {{ .Config.System.Hostname }}
+Version     {{ .Config.Version }}
+
+Interfaces
+WAN on {{ .Config.Interfaces.Wan.If }} ip {{ .Config.Interfaces.Wan.Ipaddr }}
+LAN on {{ .Config.Interfaces.Lan.If }} ip {{ .Config.Interfaces.Lan.Ipaddr }}
+
+Virtual IPs
+{{ range $i, $vip := .Config.Virtualip.Vip }}
+{{- $vip.Mode }} {{ $vip.Interface }} {{ $vip.Descr }} {{ $vip.Subnet }}
+{{ end }}
+
+Aliases
+{{ range $i, $a := .Config.Aliases.Alias }}
+{{- $a.Name }} {{ $a.Type }} {{ $a.Address }} {{ $a.Descr }}
+{{ end }}
+
+Filters
+{{ range $i, $rule := .Config.Filter.Rule }}
+{{- $rule.Tracker }} {{ $rule.Updated.Time.Format "2006-01-02" }} {{ $rule.Interface }} 
+{{- if $rule.Source.Any }} any 
+{{- else }} {{ $rule.Source.Address }}
+{{- end }} to 
+{{- if $rule.Destination.Any }} any 
+{{- else }} {{ $rule.Destination.Address }}
+{{- if $rule.Destination.Port }}:{{ $rule.Destination.Port }}{{ end }}
+{{- end }}
+{{ end }}
