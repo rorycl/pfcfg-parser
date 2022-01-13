@@ -1,4 +1,4 @@
-# pfsensecfg-parser
+# pfcfg-parser
 
 version 0.0.1 : 13 January 2022
 
