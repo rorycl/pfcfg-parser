@@ -19,7 +19,7 @@ Run
 
 Output
 
-    HAProxy Configuration Report
+    PFSense Configuration Report
 
     Report generated at 2022-01-13 17:30
     System      mycorp-fwl17b
