@@ -1,6 +1,6 @@
 # pfcfg-parser
 
-version 0.0.1 : 13 January 2022
+version 0.0.2 : 13 January 2022
 
 A quick and simple parser for PFSense XML configuration files to
 generate a plain text file of the main configuration items, focusing on
