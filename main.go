@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"text/template"
 	"time"
@@ -29,7 +28,7 @@ func main() {
 
 	data, err := ioutil.ReadFile(file)
 	if err != nil {
-		log.Fatalf("File %s could not be opened %v", file, err)
+		fmt.Printf("File %s could not be opened %s\n", file, err)
 		os.Exit(1)
 	}
 
@@ -37,13 +36,14 @@ func main() {
 
 	err = xml.Unmarshal([]byte(data), &pfConfig)
 	if err != nil {
-		log.Fatalf("XML decoding error %v", err)
+		fmt.Printf("XML decoding error %s\n", err)
 		os.Exit(1)
 	}
 
 	t, err := template.ParseFiles(textTemplate)
 	if err != nil {
-		log.Fatalln(err)
+		fmt.Printf("Template parsing error: %s\n", err)
+		os.Exit(1)
 	}
 
 	now := time.Now()
