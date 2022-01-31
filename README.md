@@ -1,13 +1,13 @@
 # pfcfg-parser
 
-version 0.0.2 : 13 January 2022
+version 0.0.3 : 31 January 2022
 
 A quick and simple parser for PFSense XML configuration files to
 generate a plain text file of the main configuration items, focusing on
 aliases and firewall rules, useful for auditing.
 
 The output can be easily modified by altering the output template. For
-reference to the naming of struct fields, refer to pfconfig.go.
+reference to the naming of struct fields, refer to `pfconfig.go`.
 
 Build
 
